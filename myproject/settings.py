@@ -25,7 +25,7 @@ SECRET_KEY = 'a+@d2duvpay+z*e9o2qs+j-be9j*72#$cckyu!zvuwpdbr4$)l'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['slavvok.pythonanywhere.com']
 
 
 # Application definition
