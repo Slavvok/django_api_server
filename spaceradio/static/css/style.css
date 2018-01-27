@@ -1,0 +1,42 @@
+
+h2 {
+  color: #FCA205;
+  text-align:center;
+}
+
+p.text{
+  text-align: center;
+  font-size: 12pt;
+}
+
+p.date{
+  text-align: left;
+  font-size: 10pt;
+  color:gray;
+}
+
+.message{
+  margin-bottom: 3px;
+}
+
+.header {
+  background-color: grey;
+  height: 50px;
+}
+
+.menu{
+  width:200px;
+  height:300px;
+  float:left;
+}
+.content{
+  display: block;
+  background:oldlace;
+  width:525px;
+  margin-top: 10px;
+  float:left;
+}
+
+.isread {
+  margin-left: 40px;
+}

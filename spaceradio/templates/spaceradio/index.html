@@ -1,4 +1,38 @@
-{% load staticfiles %}<!doctype html>
-<title>Spaceradio</title>
-<div id="app">Spaceradio!</div>
-<script src="{% static 'app.js' %}"></script>
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel ="stylesheet" href = "{% static 'css/style.css' %}">
+    <script src="{% static 'js/main.js' %}"></script>
+    <meta charset="utf-8">
+    <title>Main</title>
+  </head>
+  <body>
+    <div class="header"><h2>Spaceradio!</h2></div>
+      <div class="menu"></div>
+      <div class="content">
+        {% for message in messages %}
+          <div class="message">
+            <div class="text">
+              <p class="date">{{message.date}}</p>
+              <p class="text">{{ message.text }}</p>
+            </div>
+            <div class="isread">
+              Прочитано?
+              {% if message.isread == False %}
+                <span class="glyphicon glyphicon-unchecked"></span>
+              {% elif message.isread == True %}
+                <span class="glyphicon glyphicon glyphicon-check"></span>
+              {% else %}
+                Null
+              {%endif%}
+            </div>
+          </div>
+          <hr>
+        {% endfor %}
+
+    </div>
+  </body>
+</html>

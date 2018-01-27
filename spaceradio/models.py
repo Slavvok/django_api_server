@@ -6,5 +6,9 @@ class Message(models.Model):
     text = models.TextField()
     isread = models.NullBooleanField(default = False)
 
+    def read(self):
+        self.read = True
+        self.save()
+        
     def __str__(self):
         return self.text
