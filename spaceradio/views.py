@@ -14,6 +14,20 @@ class MainView(APIView):
         return Response({'messages':queryset})
 
 class MessageViewSet(viewsets.ModelViewSet):
+    serializer_class = MessageSerializer
+    queryset = Message.objects.filter(isread = False)
+    @property
+    def mark_read(self, request):
+        self.read = Message.objects.all().set(isread=True)
+        return Response({'read' :self.read})
+
+'''
+class MarkRead(viewsets.ModelViewSet):
+    serializer_class = MessageSerializer
     queryset = Message.objects.all()
-    def get_serializer_class(self):
-        return MessageSerializer
+    queryset.isread.set(False)
+
+    def mark_read(self, request):
+        self.read = Message.objects.all().set(isread=True)
+        return Response({'read' :self.read})
+'''
