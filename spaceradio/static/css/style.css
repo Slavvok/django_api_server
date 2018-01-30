@@ -1,4 +1,6 @@
-
+body {
+  margin: auto;
+}
 h2 {
   color: #FCA205;
   text-align:center;
@@ -34,7 +36,7 @@ p.date{
   background:oldlace;
   width:525px;
   margin-top: 10px;
-  float:left;
+  margin: auto;
 }
 
 .isread {
