@@ -3,4 +3,4 @@ from .models import Message
 
 @admin.register(Message)
 class MessageAdmin(admin.ModelAdmin):
-    list_display = ['date', 'text', 'isread']
+    list_display = ['pk', 'date', 'text', 'isread']

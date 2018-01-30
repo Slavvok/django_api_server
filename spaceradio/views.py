@@ -3,6 +3,7 @@ from rest_framework.renderers import TemplateHTMLRenderer
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import viewsets
+from rest_framework.decorators import detail_route
 from .serializers import MessageSerializer
 from .models import Message
 
@@ -16,18 +17,15 @@ class MainView(APIView):
 class MessageViewSet(viewsets.ModelViewSet):
     serializer_class = MessageSerializer
     queryset = Message.objects.filter(isread = False)
-    @property
-    def mark_read(self, request):
-        self.read = Message.objects.all().set(isread=True)
-        return Response({'read' :self.read})
-
+    @detail_route(methods=['get','put'], url_name='mark_read/')
+    def mark_read(self, request, pk=None):
+        queryset = Message.objects.filter(pk=pk).update(isread=True)
+        return Response({'read':queryset})
 '''
-class MarkRead(viewsets.ModelViewSet):
+class MarkReadViewSet(viewsets.ModelViewSet):
     serializer_class = MessageSerializer
     queryset = Message.objects.all()
-    queryset.isread.set(False)
-
-    def mark_read(self, request):
-        self.read = Message.objects.all().set(isread=True)
-        return Response({'read' :self.read})
+    def mark_read(self, request, pk):
+        queryset = Message.objects.update(isread=False)
+        return Response({'read':queryset})
 '''
