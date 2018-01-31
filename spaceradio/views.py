@@ -16,7 +16,7 @@ class MainView(APIView):
 
 class MessageViewSet(viewsets.ModelViewSet):
     serializer_class = MessageSerializer
-    queryset = Message.objects.filter(isread = False)
+    queryset = Message.objects.filter(isread = False).order_by('-date')
     @detail_route(methods=['get','put'], url_name='mark_read/')
     def mark_read(self, request, pk=None):
         queryset = Message.objects.filter(pk=pk).update(isread=True)

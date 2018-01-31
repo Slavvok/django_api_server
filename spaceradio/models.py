@@ -1,8 +1,8 @@
 from django.db import models
-from django.utils import timezone
+import datetime
 
 class Message(models.Model):
-    date = models.DateTimeField(default = timezone.now)
+    date = models.DateTimeField(default = datetime.datetime.now())
     text = models.TextField(default = '')
     isread = models.NullBooleanField(default = False)
 
