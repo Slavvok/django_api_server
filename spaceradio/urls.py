@@ -3,7 +3,7 @@ from rest_framework.routers import SimpleRouter
 from .views import *
 
 router = SimpleRouter()
-router.register(r'api/get_messages', MessageViewSet)
+router.register(r'api/get_messages/', MessageViewSet)
 #router.register(r'api/mark_read', MarkReadViewSet),
 
 urlpatterns = [
